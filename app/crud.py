@@ -3,6 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from . import schema, models
 from sqlalchemy.future import select  # 이 부분을 추가해 주세요
 from sqlalchemy.orm import selectinload
+from fastapi import HTTPException
 # Read 요청이 많을 것을 대비하여 캐시를 사용해 개발
 from functools import lru_cache
 
@@ -20,7 +21,7 @@ async def read_item(db: AsyncSession, id: int):
         result = await db.execute(select(models.Item).where(models.Item.id == id))
         item = result.scalar()
         if item is None:
-            raise HTTPException(status_code=404, detail=f"지정된 id로 항목을 찾을 수 없습니다: {id}")
+            raise HTTPException(status_code=404, detail="id not exist")
     return item
 
 async def update_item(db: AsyncSession, id: int, item: schema.Item):
@@ -57,5 +58,5 @@ async def get_item(db: AsyncSession):
         result = await db.execute(select(models.Item))
         items = result.scalars().all()
         if not items:
-            raise HTTPException(status_code=404, detail="찾을 수 없습니다")
+            raise HTTPException(status_code=404, detail="not exist")
     return items

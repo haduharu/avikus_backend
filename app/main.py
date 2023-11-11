@@ -37,7 +37,8 @@ async def get_read_item(id: int, db: AsyncSession = Depends(get_db)):
     if read_item:
         return read_item
     else:
-        raise HTTPException(404, crud.error_message('No item : id {}'.format(id)))
+        raise HTTPException(status_code=404, detail="id not exist")
+        #raise HTTPException(404, crud.error_message('No item : id {}'.format(id)))
 
 # "Update": 주어진 키에 해당하는 엔트리를 업데이트하는 함수 (PUT 메서드)
 @app.put('/update/{id}')
