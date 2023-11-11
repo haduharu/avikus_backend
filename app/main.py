@@ -16,7 +16,9 @@ async def init():
         await conn.run_sync(models.Base.metadata.create_all)
 
 # 초기화를 비동기적으로 실행
-asyncio.create_task(init())
+#asyncio.create_task(init())
+loop = asyncio.get_event_loop()
+loop.create_task(init())
 
 async def get_db():
     db = AsyncSessionLocal()

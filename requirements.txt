@@ -1,26 +1,43 @@
-annotated-types==0.5.0
-anyio==3.7.1
-asyncpg==0.28.0
-click==8.1.7
-databases==0.8.0
-dnspython==2.3.0
-email-validator==2.0.0.post2
-exceptiongroup==1.1.3
-fastapi==0.103.2
-greenlet==3.0.1
-h11==0.14.0
-httptools==0.6.0
-idna==3.4
-importlib-metadata==6.7.0
-psycopg2-binary==2.9.9
-pydantic==2.4.2
-pydantic_core==2.10.1
-sniffio==1.3.0
-SQLAlchemy==1.4.50
-starlette==0.27.0
-typing==3.7.4.3
-typing_extensions==4.7.1
-uvicorn==0.22.0
-uvloop==0.18.0
-websockets==11.0.3
-zipp==3.15.0
+Click
+fastapi
+uvicorn
+pydantic
+h11
+httptools
+psycopg2-binary
+starlette
+typing
+uvloop
+websockets
+databases
+asyncpg
+email-validator
+
+pytest
+
+# annotated-types==0.5.0
+# anyio==3.7.1
+# asyncpg==0.28.0
+# click==8.1.7
+# databases==0.8.0
+# dnspython==2.3.0
+# email-validator==2.0.0.post2
+# exceptiongroup==1.1.3
+# fastapi==0.103.2
+# greenlet==3.0.1
+# h11==0.14.0
+# httptools==0.6.0
+# idna==3.4
+# importlib-metadata==6.7.0
+# psycopg2-binary==2.9.9
+# pydantic==2.4.2
+# pydantic_core==2.10.1
+# sniffio==1.3.0
+# SQLAlchemy==1.4.50
+# starlette==0.27.0
+# typing==3.7.4.3
+# typing_extensions==4.7.1
+# uvicorn==0.22.0
+# uvloop==0.18.0
+# websockets==11.0.3
+# zipp==3.15.0
