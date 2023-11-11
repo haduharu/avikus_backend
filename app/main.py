@@ -38,7 +38,6 @@ async def get_read_item(id: int, db: AsyncSession = Depends(get_db)):
         return read_item
     else:
         raise HTTPException(status_code=404, detail="id not exist")
-        #raise HTTPException(404, crud.error_message('No item : id {}'.format(id)))
 
 # "Update": 주어진 키에 해당하는 엔트리를 업데이트하는 함수 (PUT 메서드)
 @app.put('/update/{id}')
@@ -47,14 +46,14 @@ async def put_update_item(item: Item, id: int, db: AsyncSession = Depends(get_db
     if update_item:
         return update_item
     else:
-        raise HTTPException(404, crud.error_message('No item : id {}'.format(id)))
+        raise HTTPException(status_code=404, detail="id not exist")
 
 # "Delete": 주어진 키에 해당하는 엔트리를 삭제하는 함수 (DELETE 메서드)
 @app.delete("/delete/{id}")
 async def delete_item(id: int, db: AsyncSession = Depends(get_db)):
     read_item = await crud.read_item(db, id)
     if read_item is None:
-        raise HTTPException(404, crud.error_message('No item : id {}'.format(id)))
+        raise HTTPException(status_code=404, detail="id not exist")
     else:
         return await crud.delete_item(db, id)
 
