@@ -1,4 +1,5 @@
-from pydantic import BaseModel
+# schema.py
+from pydantic import BaseModel, BaseConfig
 from typing import Optional
 from datetime import datetime
 
@@ -7,5 +8,6 @@ class Item(BaseModel):
     name: str
     content: bytes
 
-    class Config:
+    class Config(BaseConfig):
         orm_mode = True
+        arbitrary_types_allowed = True
